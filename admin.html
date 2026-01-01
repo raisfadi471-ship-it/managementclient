@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>⚡ Admin Dashboard</h1>
+        <p class="small" style="margin-top: 8px; opacity: 0.9;">Manage appointments and clients</p>
+      </div>
+      <a class="link" href="index.html">← Back to Booking</a>
+    </div>
+
+    <div id="authCard" class="card" style="margin-bottom: 24px;">
+      <h2 style="margin-bottom: 20px;">🔐 Admin Login</h2>
+      <div class="grid">
+        <div>
+          <label>Email</label>
+          <input id="adminEmail" type="email" placeholder="admin@clinic.com" />
+        </div>
+        <div>
+          <label>Password</label>
+          <input id="adminPassword" type="password" placeholder="••••••••" />
+        </div>
+      </div>
+      <div class="row" style="margin-top: 14px; justify-content: flex-end;">
+        <button id="loginBtn">Login</button>
+        <button id="logoutBtn" style="display:none;">Logout</button>
+      </div>
+      <div id="authNotice" class="notice" style="display:none;"></div>
+    </div>
+
+    <div id="dashboard" class="card" style="display:none;">
+      <div class="row" style="justify-content: space-between; margin-bottom: 10px;">
+        <div class="small" id="sessionInfo"></div>
+        <button id="refreshBtn">Refresh</button>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Service</th>
+            <th>Client</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="apptBody"></tbody>
+      </table>
+
+      <div id="dashNotice" class="notice" style="display:none;"></div>
+    </div>
+
+    <div id="rescheduleModal" class="modal" style="display:none;">
+      <div class="modal-content card" onclick="event.stopPropagation();">
+        <h2>Reschedule Appointment</h2>
+        <div class="grid">
+          <div>
+            <label>New Date</label>
+            <input id="rescheduleDate" type="date" />
+          </div>
+          <div>
+            <label>New Time</label>
+            <input id="rescheduleTime" type="time" step="900" />
+          </div>
+        </div>
+        <div class="row" style="margin-top: 14px; justify-content: flex-end; gap: 8px;">
+          <button id="cancelReschedule">Cancel</button>
+          <button id="saveReschedule">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="historyModal" class="modal" style="display:none;">
+      <div class="modal-content card" onclick="event.stopPropagation();">
+        <h2 id="historyTitle">Client History</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Service</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+        <div class="row" style="margin-top: 14px; justify-content: flex-end;">
+          <button id="closeHistory">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

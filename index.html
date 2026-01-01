@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Appointment</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>✨ Book Your Appointment</h1>
+        <p class="small" style="margin-top: 8px; opacity: 0.9;">Professional massage and training services</p>
+      </div>
+      <a class="link" href="admin.html">Admin Login →</a>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-bottom: 24px;">📅 Schedule Your Visit</h2>
+      <div class="grid">
+        <div>
+          <label>Full name</label>
+          <input id="name" placeholder="Your full name" />
+        </div>
+        <div>
+          <label>Phone number</label>
+          <input id="phone" placeholder="e.g. +923001234567" />
+        </div>
+        <div>
+          <label>Email</label>
+          <input id="email" placeholder="optional" />
+        </div>
+        <div>
+          <label>Service type</label>
+          <select id="service">
+            <option value="Swedish Massage">Swedish Massage</option>
+            <option value="Deep Tissue">Deep Tissue</option>
+            <option value="Sports Massage">Sports Massage</option>
+            <option value="Relaxation">Relaxation</option>
+            <option value="Training Session">Training Session</option>
+          </select>
+        </div>
+        <div>
+          <label>Date</label>
+          <input id="date" type="date" />
+        </div>
+        <div>
+          <label>Time</label>
+          <input id="time" type="time" step="900" />
+          <div class="small">15-minute intervals. Select date first to see availability.</div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 14px; justify-content: space-between;">
+        <div class="small">By booking you agree to be contacted on WhatsApp/SMS.</div>
+        <button id="bookBtn">Book appointment</button>
+      </div>
+
+      <div id="notice" class="notice" style="display:none;"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="booking.js"></script>
+</body>
+</html>
